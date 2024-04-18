@@ -66,7 +66,7 @@ def home_page():
     "<h1 style='text-align: center; color: white;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
     unsafe_allow_html=True
 )
-   st.markdown(
+    st.markdown(
         """
         <style>
         /* Style the label of the file uploader */
