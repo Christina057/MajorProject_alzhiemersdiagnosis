@@ -28,6 +28,11 @@ def preprocess_image(image_path):
     img_array = np.expand_dims(img_array, axis=0)
     img_array /= 255.0
     return img_array
+def save_image_to_pdf(image_path, pdf):
+    img = Image.open(image_path)
+    pdf.add_page()
+    pdf.image(image_path, x=10, y=10, w=100)
+    return pdf
 
 def predict(image_path, model):
     img_array = preprocess_image(image_path)
