@@ -46,14 +46,17 @@ def home_page():
     st.markdown(
         """
         <style>
-        body {
-            background-color: #333333;
+        /* Style the header */
+        .header {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
         }
-        div[data-testid="stImage"] img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 10%;
+        /* Style the uploaded image name */
+        .image-name {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
         }
         </style>
         """,
@@ -68,19 +71,7 @@ def home_page():
         class_labels = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented', 3: 'VeryMildDemented'}
 
     st.markdown(
-        "<h1 style='color: white;text-align:center; margin-bottom: 20px;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        """
-        <style>
-        /* Style the label of the file uploader */
-        .file-upload-btn::file-selector-button {
-            color: white !important;
-        }
-        </style>
-        """,
+        "<h1 class='header'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
         unsafe_allow_html=True
     )
 
@@ -92,7 +83,7 @@ def home_page():
             st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
         else:
             st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True, width=600)
-            st.write("")
+            st.markdown(f"<p class='image-name'>Uploaded Image Name: {uploaded_file.name}</p>", unsafe_allow_html=True)
             if st.button('Predict Results'):
 
                 # Perform classification
@@ -119,14 +110,14 @@ def home_page():
 
                     # Generate PDF with image and results
                     pdf = FPDF()
-                    pdf = save_image_to_pdf(image_path, pdf)
                     pdf.add_page()
-                    pdf.set_font("Arial", size=30)
-                    results_text = (
-                        f"Prediction: {predicted_class}\n"
-                        f"Confidence: {confidence:.2%}\n"
-                        f"Raw Prediction Data:\n{raw_df.to_string(index=False)}"
-                    )
+                    pdf.set_font("Arial", size=12)
+                    pdf.cell(200, 10, txt="Prediction Results", ln=1, align='C')
+                    pdf.cell(200, 10, txt=f"Prediction: {predicted_class}", ln=2)
+                    pdf.cell(200, 10, txt=f"Confidence: {confidence:.2%}", ln=3)
+                    pdf.cell(200, 10, txt="Raw Prediction Data:", ln=4)
+                    for index, row in raw_df.iterrows():
+                        pdf.cell(200, 10, txt=f"{row['Class Label']}: {row['Probability']:.2%}", ln=5+index)
                     pdf_output = pdf.output(dest="S").encode("latin1")
                     b64 = base64.b64encode(pdf_output).decode()
                     href = f'<a href="data:application/pdf;base64,{b64}" download="results.pdf">Download PDF with Image and Results</a>'
@@ -136,7 +127,7 @@ def main():
     st.markdown("""
     <style>
         div[data-baseweb="file-uploader"] > div {
-            width: 5% !important;  /* Adjust the width as per your requirement */
+            width: 50% !important;  /* Adjust the width as per your requirement */
             margin: auto !important;
         }
         .content {
