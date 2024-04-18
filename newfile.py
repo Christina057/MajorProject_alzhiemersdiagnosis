@@ -126,15 +126,13 @@ def home_page():
                     pdf = FPDF()
                     pdf = save_image_to_pdf(image_path, pdf)
                     pdf.add_page()
-                    pdf.set_font("Arial", size=30)
-                    results_text = (
-                        f"Prediction: {predicted_class}\n"
-                        f"Confidence: {confidence:.2%}\n"
-                        f"Raw Prediction Data:\n{raw_df.to_string(index=False)}"
-                    )
+                    pdf.set_font("Arial", size=15)
+                    results = f"Prediction: {predicted_class}\nConfidence: {confidence:.2%}\nRaw Prediction Data:\n{raw_df.to_string()}"
+                    pdf.multi_cell(0, 10, results)
                     pdf_output = pdf.output(dest="S").encode("latin1")
-                    b64 = base64.b64encode(pdf_output).decode()
-                    href = f'<a href="data:application/pdf;base64,{b64}" download="results.pdf">Download PDF with Image and Results</a>'
+                    b64 = base64.b64encode(pdf_output)
+                    pdf_str = b64.decode()
+                    href = f'<a href="data:application/octet-stream;base64,{pdf_str}" download="results.pdf">Download PDF with Image and Results</a>'
                     st.markdown(href, unsafe_allow_html=True)
 
 def main():
