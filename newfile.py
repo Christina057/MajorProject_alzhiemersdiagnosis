@@ -67,10 +67,10 @@ def home_page():
         model_mri_nonmri = tf.keras.models.load_model('mri_nonmri_classifier.h5')
         class_labels = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented', 3: 'VeryMildDemented'}
 
-   st.markdown(
-    "<h1 style='text-align: center; color: white; font-family: Courier New;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
-    unsafe_allow_html=True
-)
+    st.markdown(
+        "<h1 style='text-align: center; color: white; font-family: Courier New;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
+        unsafe_allow_html=True
+    )
 
     st.markdown(
         """
@@ -100,8 +100,8 @@ def home_page():
 
                 # Display prediction results
                 st.markdown("<h2 style='color: white;'>Classification Results:</h2>", unsafe_allow_html=True)
-                st.markdown(f"<h4 style='color: white;'>Prediction: {predicted_class}</h2>", unsafe_allow_html=True)
-                st.markdown(f"<h4 style='color: white;'>Confidence: {confidence:.2%}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h4 style='color: white;'>Prediction: {predicted_class}</h4>", unsafe_allow_html=True)
+                st.markdown(f"<h4 style='color: white;'>Confidence: {confidence:.2%}</h4>", unsafe_allow_html=True)
 
                 # Display raw prediction data in a table
                 raw_data = {'Class Label': list(class_labels.values()), 'Probability': predictions}
