@@ -86,7 +86,7 @@ def home_page():
         else:
             st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True,width=600)
             st.write("")
-            if st.button('Show Details'):
+            if st.button('Prediction Results'):
                 st.write("Classifying...")
 
                 # Perform classification
