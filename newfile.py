@@ -23,7 +23,7 @@ def is_brain_mri(image_path, model):
     return prediction[0][0] <= 0.5
 
 def preprocess_image(image_path):
-    img = image.load_img(image_path, target_size=(176, 176),color_mode='grayscale')
+    img = image.load_img(image_path, target_size=(176, 176), color_mode='grayscale')
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array /= 255.0
@@ -56,16 +56,19 @@ def home_page():
         """,
         unsafe_allow_html=True
     )
+    
     tf.keras.utils.get_custom_objects()['SeqSelfAttention'] = SeqSelfAttention
 
     with tf.keras.utils.custom_object_scope({'SeqSelfAttention': SeqSelfAttention}):
         model_alzheimers = load_model("new_model.h5")
         model_mri_nonmri = tf.keras.models.load_model('mri_nonmri_classifier.h5')
         class_labels = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented', 3: 'VeryMildDemented'}
+
     st.markdown(
-    "<h1 style='text-align: center; color: white;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
-    unsafe_allow_html=True
-)
+        "<h1 style='text-align: center; color: white;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
+        unsafe_allow_html=True
+    )
+
     st.markdown(
         """
         <style>
@@ -77,6 +80,7 @@ def home_page():
         """,
         unsafe_allow_html=True
     )
+
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
 
     if uploaded_file is not None:
@@ -84,7 +88,7 @@ def home_page():
         if not is_brain_mri(image_path, model_mri_nonmri):
             st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
         else:
-            st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True,width=600)
+            st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True, width=600)
             st.write("")
             if st.button('Prediction Results'):
                 st.write("Classifying...")
