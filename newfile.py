@@ -94,13 +94,13 @@ def home_page():
             st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True, width=600)
             st.write("")
             if st.button('Prediction Results'):
-                st.write("Classifying...")
+                st.markdown("<h2 style='color: white;'>Classifying..:</h2>", unsafe_allow_html=True)
 
                 # Perform classification
                 predicted_class, confidence, predictions = predict(image_path, model_alzheimers)
 
                 # Display prediction results
-                st.subheader("Classification Results:")
+                st.markdown("<h2 style='color: white;'>Classification Results:</h2>", unsafe_allow_html=True)
                 st.markdown(f"<h2 style='color: white;'>Prediction: {predicted_class}</h2>", unsafe_allow_html=True)
                 st.markdown(f"<h2 style='color: white;'>Confidence: {confidence:.2%}</h2>", unsafe_allow_html=True)
 
