@@ -128,7 +128,7 @@ def main():
             align-items: flex-start; /* Align items at the start of the container */
         }
         [data-testid="stAppViewContainer"] {
-            background-image: url("https://img.freepik.com/premium-photo/concept-brainstorming-artificial-intelligence-with-blue-color-human-brain-background_121658-753.jpg");
+            background-image: url("background.jpg");
             background-size: 100%;
             background-position: top left;
             background-repeat: no-repeat;
