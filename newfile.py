@@ -43,7 +43,6 @@ def save_uploaded_file(uploaded_file):
     return uploaded_file.name
 
 def home_page():
-    st.image('logo.jpg', use_column_width=True, width=200)
     st.markdown(
         """
         <style>
@@ -109,19 +108,6 @@ def home_page():
                     st.markdown(href, unsafe_allow_html=True)
 
 def main():
-    st.set_page_config(layout="wide")
-    st.markdown("<h1 style='text-align: center;'>Gayatri Vidya Parishad College of Engineering For Women</h1>", unsafe_allow_html=True)
-    st.markdown("""
-    <style>
-        img.logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 100px;
-            height: auto;
-        }
-    </style>
-    """, unsafe_allow_html=True)
     st.markdown("""
     <style>
         div[data-baseweb="file-uploader"] > div {
