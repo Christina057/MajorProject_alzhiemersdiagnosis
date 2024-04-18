@@ -46,6 +46,9 @@ def home_page():
     st.markdown(
         """
         <style>
+        body {
+            background-color: #333333;
+        }
         div[data-testid="stImage"] img {
             display: block;
             margin-left: auto;
@@ -90,21 +93,21 @@ def home_page():
         else:
             st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True, width=600)
             st.write("")
-            if st.button('Predict Results'):
+            if st.button('Prediction Results'):
                 st.write("Classifying...")
 
                 # Perform classification
                 predicted_class, confidence, predictions = predict(image_path, model_alzheimers)
 
                 # Display prediction results
-                st.markdown(f"<h3 style 'color: white;'>Classification Results: </h3>", unsafe_allow_html=True)
-                st.markdown(f"<h3 style 'color: white;'>Prediction: {predicted_class}</h3>", unsafe_allow_html=True)
-                st.markdown(f"<h3 style= 'color: white;'>Confidence: {confidence:.2%}</h3>", unsafe_allow_html=True)
+                st.subheader("Classification Results:")
+                st.markdown(f"<h2 style='color: white;'>Prediction: {predicted_class}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h2 style='color: white;'>Confidence: {confidence:.2%}</h2>", unsafe_allow_html=True)
 
                 # Display raw prediction data in a table
                 raw_data = {'Class Label': list(class_labels.values()), 'Probability': predictions}
                 raw_df = pd.DataFrame(raw_data)
-                st.markdown("<h2 style='text-align: center; color: white;'>Raw Prediction Data:</h2>", unsafe_allow_html=True)
+                st.markdown("<h2 style='color: white;'>Raw Prediction Data:</h2>", unsafe_allow_html=True)
                 st.dataframe(raw_df)
 
                 st.session_state['results'] = (predicted_class, confidence, raw_df)
