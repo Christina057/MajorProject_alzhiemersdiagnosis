@@ -93,7 +93,7 @@ def home_page():
         else:
             st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True, width=600)
             st.write("")
-            if st.button('Prediction Results'):
+            if st.button('Predict Results'):
 
                 # Perform classification
                 predicted_class, confidence, predictions = predict(image_path, model_alzheimers)
