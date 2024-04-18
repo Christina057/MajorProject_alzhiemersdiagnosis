@@ -73,18 +73,18 @@ def home_page():
     )
 
     st.markdown(
-        """
-        <style>
-        /* Style the label of the file uploader */
-        .file-upload-btn::file-selector-button {
-            color: white !important;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
+    """
+    <style>
+    /* Style the label of the file uploader */
+    .fileUploader div:first-child {
+        color: white !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
     )
 
-    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"], key="fileUploader")
 
     if uploaded_file is not None:
         image_path = save_uploaded_file(uploaded_file)
