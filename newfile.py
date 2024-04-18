@@ -48,17 +48,12 @@ def home_page():
         <style>
         body {
             background-color: #333333;
-            color: white;
         }
         div[data-testid="stImage"] img {
             display: block;
             margin-left: auto;
             margin-right: auto;
             max-width: 10%;
-        }
-        .classification-text {
-            color: white;
-            text-align: center;
         }
         </style>
         """,
@@ -73,7 +68,7 @@ def home_page():
         class_labels = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented', 3: 'VeryMildDemented'}
 
     st.markdown(
-       <h1 style='text-align: center; color: white;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>
+        "<h1 style='text-align: center; color: white;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
         unsafe_allow_html=True
     )
 
@@ -99,20 +94,20 @@ def home_page():
             st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True, width=600)
             st.write("")
             if st.button('Prediction Results'):
-                st.markdown("<p class='classification-text'>Classifying...</p>", unsafe_allow_html=True)
+                st.write("Classifying...")
 
                 # Perform classification
                 predicted_class, confidence, predictions = predict(image_path, model_alzheimers)
 
                 # Display prediction results
-                st.markdown("<h4 class='classification-text'>Classification Results:</h4>", unsafe_allow_html=True)
-                st.markdown(f"<h4 class='classification-text'>Prediction: {predicted_class}</h4>", unsafe_allow_html=True)
-                st.markdown(f"<h4 class='classification-text'>Confidence: {confidence:.2%}</h4>", unsafe_allow_html=True)
+                st.subheader("Classification Results:")
+                st.markdown(f"<h2 style='color: white;'>Prediction: {predicted_class}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h2 style='color: white;'>Confidence: {confidence:.2%}</h2>", unsafe_allow_html=True)
 
                 # Display raw prediction data in a table
                 raw_data = {'Class Label': list(class_labels.values()), 'Probability': predictions}
                 raw_df = pd.DataFrame(raw_data)
-                st.markdown("<h4 class='classification-text'>Raw Prediction Data:</h4>", unsafe_allow_html=True)
+                st.markdown("<h2 style='color: white;'>Raw Prediction Data:</h2>", unsafe_allow_html=True)
                 st.dataframe(raw_df)
 
                 st.session_state['results'] = (predicted_class, confidence, raw_df)
