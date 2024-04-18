@@ -56,13 +56,19 @@ def home_page():
         """,
         unsafe_allow_html=True
     )
+    tf.keras.utils.get_custom_objects()['SeqSelfAttention'] = SeqSelfAttention
+
+    with tf.keras.utils.custom_object_scope({'SeqSelfAttention': SeqSelfAttention}):
+        model_alzheimers = load_model("new_model.h5")
+        model_mri_nonmri = tf.keras.models.load_model('mri_nonmri_classifier.h5')
+        class_labels = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented', 3: 'VeryMildDemented'}
     st.markdown("<h1 style='text-align: center;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
 
     if uploaded_file is not None:
         image_path = save_uploaded_file(uploaded_file)
-        if not is_brain_mri(image_path, is_brain_mri):
+        if not is_brain_mri(image_path, model_mri_nonmri):
             st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
         else:
             st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True)
