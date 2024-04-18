@@ -68,7 +68,7 @@ def home_page():
         class_labels = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented', 3: 'VeryMildDemented'}
 
     st.markdown(
-        "<h3 style='text-align: center; color: white; font-family:Arial; font-weight:bold;'>Comprehensive System for Alzheimer's Disease Diagnoses</h3>",
+        "<h3 style='text-align: center; color: white; font-family:Courier New; font-weight:bold;'>Comprehensive System for Alzheimer's Disease Diagnoses</h3>",
         unsafe_allow_html=True
     )
 
