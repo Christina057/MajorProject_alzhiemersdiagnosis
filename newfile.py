@@ -66,6 +66,17 @@ def home_page():
     "<h1 style='text-align: center; color: white;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
     unsafe_allow_html=True
 )
+    st.markdown(
+        """
+        <style>
+        /* Style the label of the file uploader */
+        label[for="file"] {
+            color: white !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
 
