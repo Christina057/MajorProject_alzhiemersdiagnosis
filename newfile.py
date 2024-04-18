@@ -129,7 +129,7 @@ def main():
         }
         [data-testid="stAppViewContainer"] {
             background-image: url("https://lms.mghcme.org/sites/default/files/course/2023-04/Precision%20V2%20.jpg");
-            background-size: 100%;
+            background-size: 50%;
             background-position: top left;
             background-repeat: no-repeat;
             background-attachment: local;
