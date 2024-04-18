@@ -98,13 +98,13 @@ def home_page():
 
                 # Display prediction results
                 st.subheader("Classification Results:")
-                st.write(f"Prediction: **{predicted_class}**")
-                st.write(f"Confidence: **{confidence:.2%}**")
+                st.markdown(f"<h2 style='text-align: center; color: white;'>Prediction: {predicted_class}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h2 style='text-align: center; color: white;'>Confidence: {confidence:.2%}</h2>", unsafe_allow_html=True)
 
                 # Display raw prediction data in a table
                 raw_data = {'Class Label': list(class_labels.values()), 'Probability': predictions}
                 raw_df = pd.DataFrame(raw_data)
-                st.subheader("Raw Prediction Data:")
+                st.markdown("<h2 style='text-align: center; color: white;'>Raw Prediction Data:</h2>", unsafe_allow_html=True)
                 st.dataframe(raw_df)
 
                 st.session_state['results'] = (predicted_class, confidence, raw_df)
