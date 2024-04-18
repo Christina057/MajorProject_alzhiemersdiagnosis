@@ -74,7 +74,7 @@ def home_page():
         if not is_brain_mri(image_path, model_mri_nonmri):
             st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
         else:
-            st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True)
+            st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True,width=600)
             st.write("")
             if st.button('Show Details'):
                 st.write("Classifying...")
