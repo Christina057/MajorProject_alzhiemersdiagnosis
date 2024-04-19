@@ -148,7 +148,7 @@ def main():
             align-items: flex-start; /* Align items at the start of the container */
         }
         [data-testid="stAppViewContainer"] {
-            background-image: url("https://www.shutterstock.com/shutterstock/videos/11740580/preview/stock-footage-human-brain-with-neuronal-impulses-spinning-loopable-blue-black-and-white-science-more.webm");
+            background-image: url("https://www.skilljar.com/wp-content/uploads/2019/10/iStock-640029196.jpg");
             background-size: 100%;
             background-position: top left;
             background-repeat: no-repeat;
