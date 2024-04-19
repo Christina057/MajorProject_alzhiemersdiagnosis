@@ -92,7 +92,7 @@ def home_page():
             st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
         else:
             # Display the uploaded image with the desired width
-            st.image(uploaded_file, caption="", use_column_width=True, width=300)
+            st.image(uploaded_file, caption="", use_column_width=True, width=200)
             st.markdown("<h5 style='color:white;text-align:center;'><b>Uploaded Image</b></h5>", unsafe_allow_html=True)
             
             
@@ -112,7 +112,7 @@ def home_page():
                 st.session_state['results'] = (predicted_class, confidence, raw_df)
 
             # Export option for downloading results as PDF
-            st.markdown("<h3 style='color:white'><b>Export results as</b></h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color:white'><b>Export results as...</b></h3>", unsafe_allow_html=True)
             export_option = st.selectbox("", ("Select format", "PDF with Image and Results"))
             if export_option == "PDF with Image and Results":
                 if 'results' in st.session_state:
