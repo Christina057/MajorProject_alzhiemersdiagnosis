@@ -154,7 +154,7 @@ def main():
             align-items: flex-start; /* Align items at the start of the container */
         }
         [data-testid="stAppViewContainer"] {
-            background-image: url("https://www.skilljar.com/wp-content/uploads/2019/10/iStock-640029196.jpg");
+            background-image: url("https://assets-global.website-files.com/6143a746b89d03a1f9b4571d/61f32de7123b7dcce1c062bb_Alto%20Final%20(0-01-30-00).jpg");
             background-size: 100%;
             background-position: top left;
             background-repeat: no-repeat;
