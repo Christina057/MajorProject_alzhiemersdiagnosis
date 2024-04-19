@@ -57,12 +57,6 @@ def home_page():
             color: white !important;
         }
 
-        /* Increase the size of the uploaded image */
-        div[data-testid="stFileUploadDropzone"] {
-            width: 80%; /* Full width */
-            margin: auto !important;
-        }
-
         /* Change the color of 'Choose an image...' and 'Export results as' text to white */
         div[data-testid="stFileUploadLabel"],
         div[data-testid="stSelectboxLabel"] {
