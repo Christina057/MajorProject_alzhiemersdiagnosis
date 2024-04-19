@@ -128,7 +128,7 @@ def home_page():
                     pdf_output = pdf.output(dest="S").encode("latin1")
                     b64 = base64.b64encode(pdf_output)
                     pdf_str = b64.decode()
-                    href = f'<a href="data:application/octet-stream;base64,{pdf_str}" download="results.pdf">Download PDF with Image and Results</a>'
+                    href = f'<a href="data:application/octet-stream;base64,{pdf_str}" download="results.pdf" style="color: white; font-size: 1.5em;">Download PDF with Image and Results</a>'
                     st.markdown(href, unsafe_allow_html=True)
 
 
