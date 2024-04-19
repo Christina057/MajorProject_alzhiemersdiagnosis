@@ -48,23 +48,29 @@ def save_uploaded_file(uploaded_file):
     return uploaded_file.name
 
 def home_page():
-    st.markdown(
-        """
-        <style>
-        body {
-            background-color: #333333;
+    # Add CSS for styling the components
+    st.markdown("""
+    <style>
+        /* Change the color of the uploaded file name */
+        div[data-testid="stFileUploadDropzone"] div:first-child,
+        div[data-testid="stFileUploadDropzone"] span {
+            color: white !important;
         }
-        div[data-testid="stImage"] img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 10%;
+
+        /* Increase the size of the uploaded image */
+        div[data-testid="stFileUploadDropzone"] {
+            width: 100%; /* Full width */
+            margin: auto !important;
         }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-    
+
+        /* Change the color of 'Choose an image...' and 'Export results as' text to white */
+        div[data-testid="stFileUploadLabel"],
+        div[data-testid="stSelectboxLabel"] {
+            color: white !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
     tf.keras.utils.get_custom_objects()['SeqSelfAttention'] = SeqSelfAttention
 
     with tf.keras.utils.custom_object_scope({'SeqSelfAttention': SeqSelfAttention}):
@@ -77,18 +83,6 @@ def home_page():
         unsafe_allow_html=True
     )
 
-    st.markdown(
-    """
-    <style>
-    /* Style the label of the file uploader */
-    .fileUploader div:first-child {
-        color: white !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-    )
-
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"], key="fileUploader")
 
     if uploaded_file is not None:
@@ -96,18 +90,16 @@ def home_page():
         if not is_brain_mri(image_path, model_mri_nonmri):
             st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
         else:
+            # Display the uploaded image with the desired width
             st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True, width=600)
-            st.write("")
+            
             if st.button('Predict Results'):
-
                 # Perform classification
                 predicted_class, confidence, predictions = predict(image_path, model_alzheimers)
-
                 # Display prediction results
                 st.markdown("<h2 style='color: white;'>Classification Results:</h2>", unsafe_allow_html=True)
                 st.markdown(f"<h4 style='color: white;'>Prediction: {predicted_class}</h4>", unsafe_allow_html=True)
                 st.markdown(f"<h4 style='color: white;'>Confidence: {confidence:.2%}</h4>", unsafe_allow_html=True)
-
                 # Display raw prediction data in a table
                 raw_data = {'Class Label': list(class_labels.values()), 'Probability': predictions}
                 raw_df = pd.DataFrame(raw_data)
@@ -134,6 +126,7 @@ def home_page():
                     pdf_str = b64.decode()
                     href = f'<a href="data:application/octet-stream;base64,{pdf_str}" download="results.pdf">Download PDF with Image and Results</a>'
                     st.markdown(href, unsafe_allow_html=True)
+
 
 def main():
     st.markdown("""
