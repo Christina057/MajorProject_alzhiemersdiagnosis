@@ -62,6 +62,13 @@ def home_page():
         div[data-testid="stSelectboxLabel"] {
             color: white !important;
         }
+
+        /* Make the error message box darker */
+        div[data-testid="stError"] {
+            background-color: #8B0000 !important; /* Dark red */
+            color: white !important; /* Text color */
+        }
+   
     </style>
     """, unsafe_allow_html=True)
 
