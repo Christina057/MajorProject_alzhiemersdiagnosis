@@ -83,7 +83,7 @@ def home_page():
         unsafe_allow_html=True
     )
 
-    st.markdown("<h6 style='color:white'>Choose an image...</h6>", unsafe_allow_html=True)
+    st.markdown("<h6 style='color:white'><b>Choose an image...</b></h6>", unsafe_allow_html=True)
     uploaded_file = st.file_uploader("", type=["jpg", "png"], key="fileUploader")
 
     if uploaded_file is not None:
@@ -93,7 +93,7 @@ def home_page():
         else:
             # Display the uploaded image with the desired width
             st.image(uploaded_file, caption="", use_column_width=True, width=400)
-            st.markdown("<h6 style='color:white;text-align:center;'>Uploaded Image</h6>", unsafe_allow_html=True)
+            st.markdown("<h6 style='color:white;text-align:center;'><b>Uploaded Image</b></h6>", unsafe_allow_html=True)
             
             
             if st.button('Predict Results'):
@@ -112,7 +112,8 @@ def home_page():
                 st.session_state['results'] = (predicted_class, confidence, raw_df)
 
             # Export option for downloading results as PDF
-            export_option = st.selectbox("Export results as", ("Select format", "PDF with Image and Results"))
+            st.markdown("<h6 style='color:white'><b>Export results as</b></h6>", unsafe_allow_html=True)
+            export_option = st.selectbox("", ("Select format", "PDF with Image and Results"))
             if export_option == "PDF with Image and Results":
                 if 'results' in st.session_state:
                     predicted_class, confidence, raw_df = st.session_state['results']
