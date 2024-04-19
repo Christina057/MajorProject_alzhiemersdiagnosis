@@ -83,7 +83,12 @@ def home_page():
         unsafe_allow_html=True
     )
 
-    st.markdown("<h3 style='color:white'><b>Choose an image...</b></h3>", unsafe_allow_html=True)
+    st.markdown("""
+    <div style="background-color: white; padding: 10px; border-radius: 5px; width: fit-content;">
+        <h3 style='color:black;'><b>Choose an image...</b></h3>
+    </div>
+    """, unsafe_allow_html=True)
+
     uploaded_file = st.file_uploader("", type=["jpg", "png"], key="fileUploader")
 
     if uploaded_file is not None:
