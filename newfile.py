@@ -84,8 +84,8 @@ def home_page():
     )
 
     st.markdown("""
-    <div style="background-color: white; padding: 7px; border-radius: 5px; ">
-        <h3 style='color:black;'><b>Choose an image...</b></h3>
+    <div style="background-color: white; padding: 7px; border-radius: 5px;width: fit-content;">
+        <h5 style='color:black;'><b>Choose an image...</b></h5>
     </div>
     """, unsafe_allow_html=True)
 
