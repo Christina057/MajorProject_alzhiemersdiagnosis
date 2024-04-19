@@ -59,7 +59,7 @@ def home_page():
 
         /* Increase the size of the uploaded image */
         div[data-testid="stFileUploadDropzone"] {
-            width: 100%; /* Full width */
+            width: 80%; /* Full width */
             margin: auto !important;
         }
 
