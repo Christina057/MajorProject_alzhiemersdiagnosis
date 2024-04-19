@@ -150,7 +150,7 @@ def main():
             align-items: flex-start; /* Align items at the start of the container */
         }
         [data-testid="stAppViewContainer"] {
-            background-image: url("https://t4.ftcdn.net/jpg/05/76/59/57/240_F_576595777_LceE0lvWeQ03306gXI2snMxyIXdzHmkV.jpg");
+            background-image: url("https://as1.ftcdn.net/v2/jpg/07/59/59/42/1000_F_759594253_28QlXx2ssiaZGVM1B8HAYdn8bfxdGO9S.jpg");
             background-size: 100%;
             background-position: top left;
             background-repeat: no-repeat;
