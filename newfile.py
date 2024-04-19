@@ -59,7 +59,7 @@ def home_page():
 
         /* Increase the size of the uploaded image */
         div[data-testid="stFileUploadDropzone"] {
-            width: 80%; /* Full width */
+            width: 100%; /* Full width */
             margin: auto !important;
         }
 
@@ -83,7 +83,7 @@ def home_page():
         unsafe_allow_html=True
     )
 
-    st.markdown("<h6 style='color: white;'><b>Choose an image...</b></h6>", unsafe_allow_html=True)
+    st.markdown("<h6 style='color:white'>Choose an image...</h6>", unsafe_allow_html=True)
     uploaded_file = st.file_uploader(".", type=["jpg", "png"], key="fileUploader")
 
     if uploaded_file is not None:
@@ -92,8 +92,8 @@ def home_page():
             st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
         else:
             # Display the uploaded image with the desired width
-            st.image(uploaded_file, caption="Uploaded Image", use_column_width=True, width=400, unsafe_allow_html=True)
-            st.markdown("<h6 style='color: white;text-align:center'>Uploaded Image</h6>", unsafe_allow_html=True)
+            st.image(uploaded_file, caption=".", use_column_width=True, width=400)
+            st.markdown("<h6 style='color:white;text-align:center;'>Classification Results:</h6>", unsafe_allow_html=True)
             
             
             if st.button('Predict Results'):
@@ -129,6 +129,7 @@ def home_page():
                     pdf_str = b64.decode()
                     href = f'<a href="data:application/octet-stream;base64,{pdf_str}" download="results.pdf">Download PDF with Image and Results</a>'
                     st.markdown(href, unsafe_allow_html=True)
+
 
 
 def main():
