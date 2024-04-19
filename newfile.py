@@ -148,7 +148,7 @@ def main():
             align-items: flex-start; /* Align items at the start of the container */
         }
         [data-testid="stAppViewContainer"] {
-            background-image: url("https://ak.picdn.net/shutterstock/videos/1032732617/thumb/1.jpg");
+            background-image: url("https://www.shutterstock.com/shutterstock/videos/11740580/preview/stock-footage-human-brain-with-neuronal-impulses-spinning-loopable-blue-black-and-white-science-more.webm");
             background-size: 100%;
             background-position: top left;
             background-repeat: no-repeat;
