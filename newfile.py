@@ -84,7 +84,7 @@ def home_page():
     )
 
     st.markdown("<h6 style='color:white'>Choose an image...</h6>", unsafe_allow_html=True)
-    uploaded_file = st.file_uploader(".", type=["jpg", "png"], key="fileUploader")
+    uploaded_file = st.file_uploader("", type=["jpg", "png"], key="fileUploader")
 
     if uploaded_file is not None:
         image_path = save_uploaded_file(uploaded_file)
@@ -92,8 +92,8 @@ def home_page():
             st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
         else:
             # Display the uploaded image with the desired width
-            st.image(uploaded_file, caption=".", use_column_width=True, width=400)
-            st.markdown("<h6 style='color:white;text-align:center;'>Classification Results:</h6>", unsafe_allow_html=True)
+            st.image(uploaded_file, caption="", use_column_width=True, width=400)
+            st.markdown("<h6 style='color:white;text-align:center;'>Uploaded Image</h6>", unsafe_allow_html=True)
             
             
             if st.button('Predict Results'):
