@@ -51,7 +51,7 @@ def home_page():
     # Add CSS for styling the components
     st.markdown("""
     <style>
-        /* Change the color of the uploaded file name */
+        /* Change the color of the uploaded file name to white */
         div[data-testid="stFileUploadDropzone"] div:first-child,
         div[data-testid="stFileUploadDropzone"] span {
             color: white !important;
