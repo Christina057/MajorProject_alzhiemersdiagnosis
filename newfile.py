@@ -65,7 +65,7 @@ def home_page():
 
         /* Make the error message box darker */
         div[data-testid="stError"] {
-            background-color: #d9534f !important; /* Darker red */
+            background-color: #ffa07a !important; 
             color: white !important; /* Text color */
         }
    
