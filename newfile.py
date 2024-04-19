@@ -79,7 +79,7 @@ def home_page():
         class_labels = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented', 3: 'VeryMildDemented'}
 
     st.markdown(
-        "<h1 style='color: black;text-align:center; margin-bottom: 20px;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
+        "<h1 style='color: white;text-align:center; margin-bottom: 20px;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
         unsafe_allow_html=True
     )
 
@@ -148,7 +148,7 @@ def main():
             align-items: flex-start; /* Align items at the start of the container */
         }
         [data-testid="stAppViewContainer"] {
-            background-image: url("https://66.media.tumblr.com/878c39e044603325fdbab12f042c6124/tumblr_inline_pkpzm8d1bp1qhw8eu_540.gif");
+            background-image: url("https://i1.wp.com/boingboing.net/wp-content/uploads/2015/06/mLZwd5.gif?resize=480%2C270");
             background-size: 100%;
             background-position: top left;
             background-repeat: no-repeat;
