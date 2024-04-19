@@ -148,7 +148,7 @@ def main():
             align-items: flex-start; /* Align items at the start of the container */
         }
         [data-testid="stAppViewContainer"] {
-            background-image: url("https://themindsjournal.com/wp-content/uploads/2023/05/brain-research.jpg");
+            background-image: url("https://ak.picdn.net/shutterstock/videos/1032732617/thumb/1.jpg");
             background-size: 100%;
             background-position: top left;
             background-repeat: no-repeat;
