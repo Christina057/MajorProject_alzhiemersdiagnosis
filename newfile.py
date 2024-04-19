@@ -83,7 +83,7 @@ def home_page():
         unsafe_allow_html=True
     )
 
-    st.markdown("<h7 style='color: white;'>Choose an image...</h7>", unsafe_allow_html=True
+    st.markdown("<h7 style='color: white;'>Choose an image...</h7>", unsafe_allow_html=True)
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"], key="fileUploader")
 
     if uploaded_file is not None:
