@@ -92,7 +92,15 @@ def home_page():
             st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
         else:
             # Display the uploaded image with the desired width
-            st.image(uploaded_file, caption="",use_column_width=True, width=300)
+            # st.image(uploaded_file, caption="", width=300)
+            st.markdown(
+                f"""
+                <div style="display: flex; justify-content: center;">
+                    <img src="data:image/png;base64,{base64.b64encode(uploaded_file.getvalue()).decode()}" style="width: 50%; height: auto;">
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
             st.markdown("<h5 style='color:white;text-align:center;'><b>Uploaded Image</b></h5>", unsafe_allow_html=True)
             
             
