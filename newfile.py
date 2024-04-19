@@ -148,7 +148,7 @@ def main():
             align-items: flex-start; /* Align items at the start of the container */
         }
         [data-testid="stAppViewContainer"] {
-            background-image: url("https://i1.wp.com/boingboing.net/wp-content/uploads/2015/06/mLZwd5.gif?resize=480%2C270");
+            background-image: url("https://doctordavidcarr.com/wp-content/uploads/2020/04/dr-david-carr-brain.jpeg");
             background-size: 100%;
             background-position: top left;
             background-repeat: no-repeat;
