@@ -103,7 +103,7 @@ def home_page():
             st.markdown(
                 f"""
                 <div style="display: flex; justify-content: center;">
-                    <img src="data:image/png;base64,{base64.b64encode(uploaded_file.getvalue()).decode()}" style="width: 50%; height: auto;">
+                    <img src="data:image/png;base64,{base64.b64encode(uploaded_file.getvalue()).decode()}" style="width: 30%; height: auto;">
                 </div>
                 """,
                 unsafe_allow_html=True
