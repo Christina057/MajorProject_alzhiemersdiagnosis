@@ -96,7 +96,9 @@ def home_page():
     if uploaded_file is not None:
         image_path = save_uploaded_file(uploaded_file)
         if not is_brain_mri(image_path, model_mri_nonmri):
-            st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
+            # st.error("Uploaded file is not a brain MRI image. Please upload a correct image.")
+            st.markdown("<h5 style='color:#7C0A02;text-align:center;'><b>Uploaded file is not a brain MRI image! Please upload a correct image.</b></h5>", unsafe_allow_html=True)
+            
         else:
             # Display the uploaded image with the desired width
             # st.image(uploaded_file, caption="", width=300)
