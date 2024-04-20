@@ -80,7 +80,7 @@ def home_page():
         class_labels = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented', 3: 'VeryMildDemented'}
 
     st.markdown(
-        "<h1 style='color: white;text-align:center; margin-bottom: 20px;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
+        "<h1 style='color: black;text-align:center; margin-bottom: 20px;'>Comprehensive System for Alzheimer's Disease Diagnoses</h1>",
         unsafe_allow_html=True
     )
 
@@ -90,7 +90,7 @@ def home_page():
     # </div>
     # """, unsafe_allow_html=True)
     
-    st.markdown("<h3 style='color:white'><b>Choose an image...</b></h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color:black'><b>Choose an image...</b></h3>", unsafe_allow_html=True)
     uploaded_file = st.file_uploader("", type=["jpg", "png"], key="fileUploader")
 
     if uploaded_file is not None:
@@ -108,26 +108,26 @@ def home_page():
                 """,
                 unsafe_allow_html=True
             )
-            st.markdown("<h5 style='color:white;text-align:center;'><b>Uploaded Image</b></h5>", unsafe_allow_html=True)
+            st.markdown("<h5 style='color:black;text-align:center;'><b>Uploaded Image</b></h5>", unsafe_allow_html=True)
             
             
             if st.button('Predict Results'):
                 # Perform classification
                 predicted_class, confidence, predictions = predict(image_path, model_alzheimers)
                 # Display prediction results
-                st.markdown("<h2 style='color: white;'>Classification Results:</h2>", unsafe_allow_html=True)
-                st.markdown(f"<h4 style='color: white;'>Prediction: {predicted_class}</h4>", unsafe_allow_html=True)
-                st.markdown(f"<h4 style='color: white;'>Confidence: {confidence:.2%}</h4>", unsafe_allow_html=True)
+                st.markdown("<h2 style='color: black;'>Classification Results:</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h4 style='color: black;'>Prediction: {predicted_class}</h4>", unsafe_allow_html=True)
+                st.markdown(f"<h4 style='color: black;'>Confidence: {confidence:.2%}</h4>", unsafe_allow_html=True)
                 # Display raw prediction data in a table
                 raw_data = {'Class Label': list(class_labels.values()), 'Probability': predictions}
                 raw_df = pd.DataFrame(raw_data)
-                st.markdown("<h2 style='color: white;'>Raw Prediction Data:</h2>", unsafe_allow_html=True)
+                st.markdown("<h2 style='color: black;'>Raw Prediction Data:</h2>", unsafe_allow_html=True)
                 st.dataframe(raw_df)
 
                 st.session_state['results'] = (predicted_class, confidence, raw_df)
 
             # Export option for downloading results as PDF
-            st.markdown("<h3 style='color:white'><b>Export results as...</b></h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color:black'><b>Export results as...</b></h3>", unsafe_allow_html=True)
             export_option = st.selectbox("", ("Select format", "PDF with Image and Results"))
             if export_option == "PDF with Image and Results":
                 if 'results' in st.session_state:
@@ -143,7 +143,7 @@ def home_page():
                     pdf_output = pdf.output(dest="S").encode("latin1")
                     b64 = base64.b64encode(pdf_output)
                     pdf_str = b64.decode()
-                    href = f'<a href="data:application/octet-stream;base64,{pdf_str}" download="results.pdf" style="color: white;"><b>Download PDF with Image and Results</b></a>'
+                    href = f'<a href="data:application/octet-stream;base64,{pdf_str}" download="results.pdf" style="color: black;"><b>Download PDF with Image and Results</b></a>'
                     st.markdown(href, unsafe_allow_html=True)
 
 
